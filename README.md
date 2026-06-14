@@ -2,23 +2,24 @@
 
 🌐 **[goklubbanjaluka.org](https://goklubbanjaluka.org)**
 
-**Srpski** · [English](#english) · [Deutsch](#deutsch)
+**Deutsch** · [English](#english) · [Srpski](#srpski)
 
 ---
 
-## Srpski
+## Deutsch
 
-Web sajt Go kluba iz Banje Luke. Sadrži informacije o klubu i igri Go, istoriju,
-kalendar turnira, raspise sa online prijavom igrača, vijesti i listu prijatelja
-kluba. Sajt je višejezičan (srpski-latinica, engleski, njemački).
+Webseite des Go-Klubs aus Banja Luka. Sie enthält Informationen über den Klub und
+das Go-Spiel, die Geschichte des Klubs, einen Turnierkalender, Turnierausschreibungen
+mit Online-Anmeldung der Spieler, Neuigkeiten und eine Liste der Freunde des Klubs.
+Die Seite ist mehrsprachig (Serbisch-Latein, Englisch, Deutsch).
 
-**Tehnologije**
+**Technologien**
 
 - ASP.NET Core MVC (.NET 8)
-- Entity Framework Core + Pomelo MySQL provider
-- Lokalizacija (`sr-Latn`, `en`, `de`) preko `.resx` resursa i sesije
-- DocumentFormat.OpenXml — Word (`.docx`) dokumenti se konvertuju u HTML
-- Bootstrap 5 + prilagođeni stil (`wwwroot/css/site.css`)
+- Entity Framework Core + Pomelo MySQL Provider
+- Lokalisierung (`sr-Latn`, `en`, `de`) über `.resx`-Ressourcen und Session
+- DocumentFormat.OpenXml — Word-Dokumente (`.docx`) werden in HTML umgewandelt
+- Bootstrap 5 + angepasste Stile (`wwwroot/css/site.css`)
 
 ---
 
@@ -39,17 +40,16 @@ is multilingual (Serbian-Latin, English, German).
 
 ---
 
-## Deutsch
+## Srpski
 
-Webseite des Go-Klubs aus Banja Luka. Sie enthält Informationen über den Klub und
-das Go-Spiel, die Geschichte des Klubs, einen Turnierkalender, Turnierausschreibungen
-mit Online-Anmeldung der Spieler, Neuigkeiten und eine Liste der Freunde des Klubs.
-Die Seite ist mehrsprachig (Serbisch-Latein, Englisch, Deutsch).
+Web sajt Go kluba iz Banje Luke. Sadrži informacije o klubu i igri Go, istoriju,
+kalendar turnira, raspise sa online prijavom igrača, vijesti i listu prijatelja
+kluba. Sajt je višejezičan (srpski-latinica, engleski, njemački).
 
-**Technologien**
+**Tehnologije**
 
 - ASP.NET Core MVC (.NET 8)
-- Entity Framework Core + Pomelo MySQL Provider
-- Lokalisierung (`sr-Latn`, `en`, `de`) über `.resx`-Ressourcen und Session
-- DocumentFormat.OpenXml — Word-Dokumente (`.docx`) werden in HTML umgewandelt
-- Bootstrap 5 + angepasste Stile (`wwwroot/css/site.css`)
+- Entity Framework Core + Pomelo MySQL provider
+- Lokalizacija (`sr-Latn`, `en`, `de`) preko `.resx` resursa i sesije
+- DocumentFormat.OpenXml — Word (`.docx`) dokumenti se konvertuju u HTML
+- Bootstrap 5 + prilagođeni stil (`wwwroot/css/site.css`)

@@ -1,0 +1,28 @@
+﻿@using GoBL.Helpers
+@using System.Globalization
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+
+@{
+    var jezik = CultureInfo.CurrentUICulture.Name;
+}
+
+@if (jezik == "sr-Latn")
+{
+    <div class="container">
+        @Html.Raw(HtmlDocsCache.IstorijaKluba)
+    </div>
+}
+else if (jezik == "en")
+{
+    <div class="container">
+        @Html.Raw(HtmlDocsCache.IstorijaKluba)
+    </div>
+}
+else
+{
+    <div class="container">
+        @Html.Raw(HtmlDocsCache.IstorijaKluba)
+    </div>
+}
+

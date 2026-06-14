@@ -1,0 +1,70 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model TurnirRegistracijaViewModel
+@{
+    ViewData["Title"] = "Registracija za turnir";
+}
+
+<h3 class="mt-2">@Localizer["lblPrijavaZaTurnir"]</h3>
+
+<form asp-action="Registracija" method="post">
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Ime"></label>
+        <input asp-for="Ime" class="form-control" />
+        <span asp-validation-for="Ime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Prezime"></label>
+        <input asp-for="Prezime" class="form-control" />
+        <span asp-validation-for="Prezime" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Kategorija"></label>
+        <select asp-for="Kategorija" class="form-control" asp-items="@(new SelectList(GoBL.Helpers.KategorijeList.Kategorije))">
+            <option value="">@Localizer["lblOdaberiKategoriju"]</option>
+        </select>
+        <span asp-validation-for="Kategorija" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Klub"></label>
+        <input asp-for="Klub" class="form-control" />
+        <span asp-validation-for="Klub" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Drzava"></label>
+        <input asp-for="Drzava" class="form-control" />
+        <span asp-validation-for="Drzava" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="DatumRodjenja"></label>
+        <input asp-for="DatumRodjenja" class="form-control" type="date" />
+        <span asp-validation-for="DatumRodjenja" class="text-danger"></span>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <label asp-for="Napomena"></label>
+        <textarea asp-for="Napomena" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-group col-12 col-md-4">
+        <p>@Localizer["lblPodaciSeNePrikazuje"]</p>
+    </div>
+
+    <button type="submit" class="btn btn-outline-primary">@Localizer["btnPosalji"]</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

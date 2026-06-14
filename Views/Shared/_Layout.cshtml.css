@@ -1,0 +1,24 @@
+/* Stilovi specifični za layout. Paleta je definisana u wwwroot/css/site.css */
+
+a.navbar-brand {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.border-top {
+    border-top: 1px solid var(--gobl-line, #e6e2da);
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--gobl-line, #e6e2da);
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(28, 27, 25, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}

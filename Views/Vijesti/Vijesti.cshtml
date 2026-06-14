@@ -1,0 +1,13 @@
+﻿@model List<Vijest>
+<div class="container mt-2">
+    @foreach (var vijest in Model)
+    {
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title">@vijest.Naslov</h4>
+                <h6 class="card-subtitle mb-2 text-muted">@vijest.Datum.ToString("dd.MM.yyyy")</h6>
+                <p class="card-text">@Html.Raw(vijest.Tekst)</p>
+            </div>
+        </div>
+    }
+</div>

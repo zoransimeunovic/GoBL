@@ -1,0 +1,54 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@model IEnumerable<GoBL.Models.Igrac>
+@{
+    Layout = "_Layout";
+}
+<h3 class="mt-2">@Localizer["lblPrijavljeniIgraci"]</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>@Localizer["lblRedniBroj"]</th>
+            <th>@Localizer["lblIme"]</th>
+            <th>@Localizer["lblPrezime"]</th>
+            <th>@Localizer["lblKategorija"]</th>
+            <th>@Localizer["lblKlub"]</th>
+            <th>@Localizer["lblDrzava"]</th>
+            <th>@Localizer["lblMladjiOd18"]</th>
+            <th>@Localizer["lblImaNapomena"]</th>
+            <th>@Localizer["lblDatumPrijave"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int redniBroj = 1;
+        }
+        @foreach (var igrac in Model)
+        {
+            <tr>
+                <td>@redniBroj</td>
+                <td>@igrac.Ime</td>
+                <td>@igrac.Prezime</td>
+                <td>@igrac.Kategorija</td>
+                <td>@igrac.Klub</td>
+                <td>@igrac.Drzava</td>
+                @if (igrac.MladjiOd18())
+                {
+                    <td>@Localizer["lblDa"]</td>
+                }else
+                {
+                    <td> </td>
+                }
+
+                @if (igrac.ImaNapomena())
+                {
+                    <td>@Localizer["lblDa"]</td>
+                }else
+                {
+                    <td> </td>
+                }
+                <td>@igrac.DatumPrijave.ToString("dd.MM.yyyy.")</td>
+            </tr>
+            redniBroj++;
+        }
+    </tbody>
+</table>

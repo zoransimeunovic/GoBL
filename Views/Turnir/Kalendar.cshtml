@@ -1,0 +1,29 @@
+﻿ @model List<Turnir>
+
+<div class="container mt-2">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Naziv turnira</th>
+                <th>Lokacija</th>
+                <th>Datum</th>
+                <th>Više informacija</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var turnir in Model)
+            {
+                <tr>
+                    <td>@turnir.Naziv</td>
+                    <td>@turnir.Lokacija</td>
+                    <td>@turnir.DatumOd.ToString("dd.MM.yyyy") - @turnir.DatumDo.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <a href="@turnir.Link" target="_blank" class="btn btn-primary btn-sm">
+                            Detalji
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

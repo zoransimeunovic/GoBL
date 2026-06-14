@@ -1,0 +1,26 @@
+@using GoBL
+@using GoBL.Helpers
+@using System.Globalization
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+
+@if (TempData["Poruka"] != null)
+{
+    <div class="alert alert-success mt-4 ">@TempData["Poruka"]</div>
+}
+
+<div class="d-flex gap-2 mt-4 mb-4">
+    <a asp-controller="Turnir" asp-action="Registracija" class="btn btn-outline-primary">
+        @Localizer["bntPrijavaNaTurnir"]
+    </a>
+    <a asp-controller="Turnir" asp-action="PrijavljeniIgraci" class="btn btn-outline-primary">
+        @Localizer["btnPrijavljeniIgraci"]
+    </a>
+@*     <a asp-controller="Turnir" asp-action="IdiNaDrugiTurnir" class="btn btn-outline-secondary ms-4">
+        Banja Luka Open
+    </a>
+ *@</div>
+
+<div class="container">
+    @Html.Raw(ViewData["RaspisHtml"])
+</div>

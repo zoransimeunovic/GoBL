@@ -1,0 +1,92 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+@using System.Globalization
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Go klub Banja Luka</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GoBL.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light px-2">
+            <div class="d-flex align-items-center w-100">
+
+                <a class="navbar-brand me-2" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/logo.png" class="navbar-logo" alt="Logo" style="height: 40px;" />
+                </a>
+
+                <!-- Scroll meni -->
+                <ul class="navbar-nav flex-row flex-nowrap overflow-auto scrolling-navbar flex-grow-1">
+                    @if ((bool)ViewData["PostojiRaspisTurnira"] == true)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @((ViewContext.RouteData.Values["action"]?.ToString() == "TurnirRaspis") ? "active" : "")" asp-controller="Home" asp-action="TurnirRaspis">@Localizer["navitemHome"]</a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "OKlubu" ? "active" : "")" asp-controller="Home" asp-action="OKlubu">@Localizer["navitemHome"]</a>
+                        </li>
+                    }
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "IstorijaKluba" ? "active" : "")" asp-controller="Home" asp-action="IstorijaKluba">@Localizer["navitemIstorijaKluba"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Kalendar" ? "active" : "")" asp-controller="Turnir" asp-action="Kalendar">@Localizer["navitemKalendar"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "OGou" ? "active" : "")" asp-controller="Home" asp-action="OGou">@Localizer["navitemOGou"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Prijatelji" ? "active" : "")" asp-controller="Home" asp-action="Prijatelji">@Localizer["navitemPrijatelji"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Vijesti" ? "active" : "")" asp-controller="Vijesti" asp-action="Vijesti">@Localizer["navitemVijesti"]</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "GoOrganizacija" ? "active" : "")" asp-controller="Home" asp-action="GoOrganizacija">@Localizer["navitemGoOrganizacija"]</a>
+                    </li>
+                </ul>
+
+                <!-- Jezik uvijek vidljiv -->
+                <div class="ms-2 d-flex align-items-center">
+                    @{
+                        var currentCulture = (string?)ViewData["CurrentCulture"] ?? CultureInfo.CurrentCulture.Name;
+                    }
+                    <form method="post" asp-controller="Home" asp-action="ChangeLanguage" class="d-inline">
+                        <select name="culture" onchange="this.form.submit()" class="form-select form-select-sm">
+                            <option value="en" selected="@((currentCulture.StartsWith("en")) ? true : false)">English</option>
+                            <option value="sr-Latn" selected="@((currentCulture.StartsWith("sr-Latn")) ? true : false)">Srpski-latinica</option>
+                            <option value="de" selected="@((currentCulture.StartsWith("de")) ? true : false)">Deutsch</option>
+                        </select>
+                    </form>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - GoBL - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
